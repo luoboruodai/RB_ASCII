@@ -1,0 +1,22 @@
+{
+  "product": "RB_ASCII Native",
+  "version": "0.4.4 beta 2",
+  "tag": "rb-ascii-v0.4.4-beta.2",
+  "repository": "luoboruodai/RB_ASCII",
+  "legacyMatchName": "CW CharWeave Native",
+  "assets": [
+    {
+      "name": "RB_ASCII-0.4.4-b2-macOS.zip",
+      "sha256": "a7f55e824cbc9fdce61c61f0975c83490b5ca9fc46710513c503c159797ad97a"
+    },
+    {
+      "name": "RB_ASCII-0.4.4-b2-Windows-x64.zip",
+      "sha256": "0bc23f090aa6942d7b47160d3d5afb3b87682470c94126345dc49d9b7dd4e561"
+    }
+  ],
+  "checksumsAsset": "SHA256SUMS.txt",
+  "approvedBinaries": {
+    "macOS": "25c6b9b125a2ff385784a6d26a185d447fcf006035462c366c4edd9e151cc64b",
+    "Windows-x64": "63cdd7cbe6ac037d233a08e2914a1bdb02fc14fa49df908e06b4e7ec80981043"
+  }
+}

@@ -1,0 +1,27 @@
+name: Validate source and models
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  source-and-models:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - uses: actions/setup-node@v7.1.0
+        with:
+          node-version: '22'
+      - name: Public source policy and scanner rejection fixtures
+        run: python3 tools/check_public.py --self-test .
+      - name: Version, PiPL, parameter layout and guide links
+        run: python3 tools/check_metadata.py
+      - name: Release mapping and rejection fixtures (synthetic payloads)
+        run: PYTHONDONTWRITEBYTECODE=1 python3 tools/test_package_release.py
+      - name: JSX logic model (not AE integration)
+        run: node RB_ASCII-mac/tests/style_script.test.cjs
+      - name: GDI lifetime and failure-path model (not Windows integration)
+        run: |
+          clang++ -std=c++17 -O1 -g -fsanitize=address,undefined -fno-sanitize-recover=all RB_ASCII-windows/tests/gdi_glyph_test.cpp -o /tmp/rb_ascii-gdi-test
+          /tmp/rb_ascii-gdi-test
